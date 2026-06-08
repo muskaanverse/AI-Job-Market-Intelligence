@@ -95,7 +95,7 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
     trained = {}
 
      for name, model in models.items():
-        start = time.time()
+         start = time.time()
 
      try:
     cv_scores = cross_val_score(
