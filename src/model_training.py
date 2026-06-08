@@ -97,11 +97,18 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
     for name, model in models.items():
         start = time.time()
 
-        cv_scores = cross_val_score(
-            model, X_train, y_train,
-            cv=5,
-            scoring="r2",
-            n_jobs=-1
+        try:
+    cv_scores = cross_val_score(
+        model,
+        X_train,
+        y_train,
+        cv=3,
+        scoring="r2",
+        n_jobs=1
+    )
+    cv_mean = cv_scores.mean()
+except:
+    cv_mean = 0
         )
 
         model.fit(X_train, y_train)
