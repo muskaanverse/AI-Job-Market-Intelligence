@@ -29,8 +29,11 @@ sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
 from src.data_loader import load_data
 from src.feature_engineering import prepare_X_y, FEATURE_COLS
 from src.model_training import (
-    train_and_compare, save_model, load_model,
-    model_is_saved, get_feature_importance
+    train_and_compare,
+    save_model,
+    load_model,
+    model_is_saved,
+    get_feature_importance
 )
 from src.predict import predict_salary, get_market_context
 
