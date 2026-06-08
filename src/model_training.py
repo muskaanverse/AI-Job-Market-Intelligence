@@ -70,7 +70,7 @@ def get_models() -> dict:
             subsample=0.8,
             colsample_bytree=0.8,
             random_state=42,
-            n_jobs=-1,
+            n_jobs=1,
             verbosity=0
         ),
     }
