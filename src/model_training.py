@@ -97,30 +97,31 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
      for name, model in models.items():
         start = time.time()
 
-    try:
-        cv_scores = cross_val_score(
-            model,
-            X_train,
-            y_train,
-            cv=3,
-            scoring="r2",
-            n_jobs=1
-        )
-        cv_mean = cv_scores.mean()
-        cv_std = cv_scores.std()
+     try:
+    cv_scores = cross_val_score(
+        model,
+        X_train,
+        y_train,
+        cv=3,
+        scoring="r2",
+        n_jobs=1
+    )
+    cv_mean = cv_scores.mean()
+    cv_std = cv_scores.std()
 
-    except:
-        cv_scores = np.array([0])
-        cv_mean = 0
-        cv_std = 0
+except:
+    cv_mean = 0
+    cv_std = 0
 
-        model.fit(X_train, y_train)
-        y_pred = model.predict(X_test)
+# ALWAYS OUTSIDE TRY-EXCEPT
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
 
-        r2 = r2_score(y_test, y_pred)
-        rmse = np.sqrt(mean_squared_error(y_test, y_pred))
-        mae = mean_absolute_error(y_test, y_pred)
-        elapsed = round(time.time() - start, 2)
+r2 = r2_score(y_test, y_pred)
+rmse = np.sqrt(mean_squared_error(y_test, y_pred))
+mae = mean_absolute_error(y_test, y_pred)
+
+elapsed = round(time.time() - start, 2), 
 
         results[name] = {
             "R² (CV mean)": round(cv_scores.mean(), 4),
