@@ -113,7 +113,6 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
         cv_scores = np.array([0])
         cv_mean = 0
         cv_std = 0
-      )
 
         model.fit(X_train, y_train)
         y_pred = model.predict(X_test)
