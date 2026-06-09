@@ -97,7 +97,7 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
     for name, model in models.items():
         start = time.time()
 
-         try:
+        try:
            cv_scores = cross_val_score(
             model,
             X_train,
@@ -109,9 +109,9 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
     cv_mean = cv_scores.mean()
     cv_std = cv_scores.std()
 
-         except:
-            cv_mean = 0
-            cv_std = 0
+           except:
+              cv_mean = 0
+              cv_std = 0
 
 # ALWAYS OUTSIDE TRY-EXCEPT
 model.fit(X_train, y_train)
