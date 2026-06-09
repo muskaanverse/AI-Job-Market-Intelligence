@@ -123,7 +123,7 @@ mae = mean_absolute_error(y_test, y_pred)
 
 elapsed = round(time.time() - start, 2), 
 
-        results[name] = {
+      results[name] = {
             "R² (CV mean)": round(cv_scores.mean(), 4),
             "R² (CV std)": round(cv_scores.std(), 4),
             "R² (Test)": round(r2, 4),
@@ -131,7 +131,7 @@ elapsed = round(time.time() - start, 2),
             "MAE": round(mae, 2),
             "Train Time (s)": elapsed,
         }
-        trained[name] = model
+      trained[name] = model
 
     best_name = max(results, key=lambda k: results[k]["R² (Test)"])
     best_model = trained[best_name]
