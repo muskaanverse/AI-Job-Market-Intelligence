@@ -109,7 +109,7 @@ def train_and_compare(X: pd.DataFrame, y: pd.Series) -> tuple[dict, dict, object
     cv_mean = cv_scores.mean()
     cv_std = cv_scores.std()
 
-       except:
+         except:
             cv_mean = 0
             cv_std = 0
 
