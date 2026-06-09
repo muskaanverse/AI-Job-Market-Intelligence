@@ -119,7 +119,7 @@ elapsed = round(time.time() - start, 2),
             "MAE": round(mae, 2),
             "Train Time (s)": elapsed,
         }
-      trained[name] = model
+         trained[name] = model
 
     best_name = max(results, key=lambda k: results[k]["R² (Test)"])
     best_model = trained[best_name]
